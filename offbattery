@@ -6,7 +6,7 @@ TIMELEFT=$(apcaccess -u -p TIMELEFT)
 MESSAGE="$DATE $TIME Location Name UPS Power Restored $TIMELEFT mins left $BCHARGE% $LASTXFER"
 curl https://your_mozeo_url.mozeo.com -X POST -H "x-api-key: Mozeo_API_Key" -H "Content-Type: application/json" -d '
 {
-"username": "Provided Mozeo Username",
+"username": "Provided Mozeo API Username",
 "password": "Provided Mozeo API Password",
 "to": "15556667777",
 "messagebody": "'"$MESSAGE"'",
@@ -19,7 +19,7 @@ curl https://your_mozeo_url.mozeo.com -X POST -H "x-api-key: Mozeo_API_Key" -H "
 }'
 curl https://your_mozeo_url.mozeo.com -X POST -H "x-api-key: Mozeo_API_Key" -H "Content-Type: application/json" -d '
 {
-"username": "Provided Mozeo Username",
+"username": "Provided Mozeo API Username",
 "password": "Provided Mozeo API Password",
 "to": "15556667777",
 "messagebody": "'"$MESSAGE"'",
