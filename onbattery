@@ -1,0 +1,32 @@
+DATE=$(date +"%m-%d-%Y") # Current date in YYYY-MM-DD format
+TIME=$(date +"%H:%M:%S") # Current time in HH:MM:SS format
+BCHARGE=$(apcaccess -u -p BCHARGE)
+LASTXFER=$(apcaccess -u -p LASTXFER)
+TIMELEFT=$(apcaccess -u -p TIMELEFT)
+MESSAGE="$DATE $TIME Location Name UPS Power Running on Battery $TIMELEFT mins left $BCHARGE% $LASTXFER"
+curl https://your_mozeo_url.mozeo.com -X POST -H "x-api-key: Mozeo_API_Key" -H "Content-Type: application/json" -d '
+{
+"username": "Provided Mozeo API Username",
+"password": "Provided Mozeo API Password",
+"to": "15556667777",
+"messagebody": "'"$MESSAGE"'",
+"date": "'"$DATE"'",
+"time": "'"$TIME"'",
+"bcharge": "'"$BCHARGE"'",
+"lastxfer":"'"$LASTXFER"'",
+"timeleft":"'"$TIMELEFT"'",
+"stop": "no"
+}'
+curl https://your_mozeo_url.mozeo.com -X POST -H "x-api-key: Mozeo_API_Key" -H "Content-Type: application/json" -d '
+{
+"username": "Provided Mozeo API Username",
+"password": "Provided Mozeo API Password",
+"to": "15556667777",
+"messagebody": "'"$MESSAGE"'",
+"date": "'"$DATE"'",
+"time": "'"$TIME"'",
+"bcharge": "'"$BCHARGE"'",
+"lastxfer":"'"$LASTXFER"'",
+"timeleft":"'"$TIMELEFT"'",
+"stop": "no"
+}'
